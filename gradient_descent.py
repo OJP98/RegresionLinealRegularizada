@@ -9,17 +9,18 @@ def gradient_descent(
         cost_derivate,
         alpha=0.01,
         treshold=0.0001,
-        max_iter=10000
+        max_iter=10000,
+        Lambda = 1,
     ):
 
     theta, i = theta_0, 0
     costs = []
     gradient_norms = []
 
-    while np.linalg.norm(cost_derivate(X, y, theta)) > treshold and i < max_iter:
-        theta -= alpha * cost_derivate(X, y, theta)
+    while np.linalg.norm(cost_derivate(X, y, theta, Lambda)) > treshold and i < max_iter:
+        theta -= alpha * cost_derivate(X, y, theta, Lambda)
         i += 1
-        costs.append(cost(X, y, theta))
-        gradient_norms.append(cost_derivate(X, y, theta))
+        costs.append(cost(X, y, theta, Lambda))
+        gradient_norms.append(cost_derivate(X, y, theta, Lambda))
 
     return theta, costs, gradient_norms

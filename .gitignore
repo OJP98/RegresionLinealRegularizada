@@ -5,3 +5,4 @@ __pycache__
 *.docx
 *.pdf
 testing.py
+.ipynb_checkpoints/
